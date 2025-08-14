@@ -1,4 +1,4 @@
-import ServicesScroll from "@/components/Myservice.tsx";
+import ServicesScroll from "@/components/Myservice";
 
 export default function Home() {
   return (
