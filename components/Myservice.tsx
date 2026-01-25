@@ -94,11 +94,7 @@ export default function ServicesScroll() {
             </button>
           </div>
         </div>
-
-        
       </div>
-
-    
       <div className="relative dark:bg-gray-900">
         {services.map((service, index) => (
           <div

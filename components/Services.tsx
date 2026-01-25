@@ -1,4 +1,3 @@
-"use client";
 import { ArrowUpRight } from "lucide-react";
 
 const services = [
