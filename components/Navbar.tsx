@@ -17,7 +17,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const navRef = useRef<HTMLElement | null>(null); 
+  const navRef = useRef<HTMLElement | null>(null);
 
   // Hide/show navbar on scroll
   useEffect(() => {
@@ -62,12 +62,12 @@ export default function Navbar() {
   // Disable body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isMobileMenuOpen]);
 
@@ -81,7 +81,7 @@ export default function Navbar() {
             bg-black/60 backdrop-blur-md border border-white/20 
             px-4 py-2 flex items-center justify-between shadow-lg 
             transition-transform duration-300 
-            ${visible ? 'translate-y-0' : '-translate-y-[150%]'}`}
+            ${visible ? "translate-y-0" : "-translate-y-[150%]"}`}
       >
         {/* Logo/Brand Name */}
         <Link href="/" className="text-lg font-bold text-white ml-2 md:ml-4">
@@ -93,7 +93,10 @@ export default function Navbar() {
           <Link href="/" className={pathname === "/" ? "text-orange-500" : ""}>
             Home
           </Link>
-          <Link href="/about" className={pathname === "/about" ? "text-orange-500" : ""}>
+          <Link
+            href="/about"
+            className={pathname === "/about" ? "text-orange-500" : ""}
+          >
             My story
           </Link>
           <div className="relative">
@@ -105,7 +108,10 @@ export default function Navbar() {
               Services
             </button>
           </div>
-          <Link href="/projects" className={pathname === "/projects" ? "text-orange-500" : ""}>
+          <Link
+            href="/projects"
+            className={pathname === "/projects" ? "text-orange-500" : ""}
+          >
             Projects
           </Link>
         </div>
@@ -113,7 +119,7 @@ export default function Navbar() {
         {/* Dropdown positioned relative to the entire navbar */}
         <AnimatePresence>
           {dropdownOpen && (
-            <div 
+            <div
               ref={dropdownRef}
               className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-full flex justify-center"
             >
@@ -129,7 +135,7 @@ export default function Navbar() {
             className="bg-orange-500 text-white text-md font-semibold px-5 py-3 rounded-full 
                        hover:bg-orange-600 transition-all flex items-center"
           >
-            <span>Let's Connect</span>
+            <span>Let&apos;s Connect</span>
             <ArrowUpRight className="inline ml-1 h-5 w-5" />
           </Link>
         </div>
@@ -147,9 +153,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && <MobileNavMenu />}
-      </AnimatePresence>
+      <AnimatePresence>{isMobileMenuOpen && <MobileNavMenu />}</AnimatePresence>
     </>
   );
 }

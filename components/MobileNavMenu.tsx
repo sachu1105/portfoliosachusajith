@@ -24,7 +24,11 @@ const listVariants = {
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.3 },
+  },
 };
 
 export default function MobileNavMenu() {
@@ -57,7 +61,7 @@ export default function MobileNavMenu() {
             className="bg-orange-500 text-white text-lg font-semibold px-6 py-4 rounded-full 
                        hover:bg-orange-600 transition-all flex items-center"
           >
-            <span>Let's Connect</span>
+            <span>Let&apos;s Connect</span>
             <ArrowUpRight className="inline ml-2 h-5 w-5" />
           </Link>
         </motion.li>
