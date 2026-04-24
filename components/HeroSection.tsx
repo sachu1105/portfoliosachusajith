@@ -3,7 +3,7 @@ import React from "react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden px-4 py-4 bg-[#efeeec]">
+    <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden px-4 py-4 bg-[#efeeec] dark:bg-neutral-900">
       {/* Image Wrapper with rounded corners */}
       <div className="relative w-full h-full rounded-4xl overflow-hidden">
         <video
@@ -13,20 +13,20 @@ export default function HeroSection() {
           loop
           playsInline
         >
-          <source src="/videos/Portfolio_Video.mp4" type="video/mp4" />
+          <source src="/videos/neotwo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
         {/* Blurry Overlay only inside the rounded image */}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-xs"></div>
+        <div className="absolute inset-0"></div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center text-white min-h-[calc(100vh-80px)] px-4">
           
           {/* Heading (Two Lines) */}
           <h1 className="text-4xl md:text-8xl font-semibold leading-tight">
-            <span className="block">Impact </span>
-            <span className="block">In Every Pixel</span>
+            <span className="block">I Build </span>
+            <span className="block">Code & Design</span>
           </h1>
 
           {/* Skills / Tagline */}

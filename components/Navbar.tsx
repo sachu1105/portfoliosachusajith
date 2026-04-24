@@ -19,13 +19,13 @@ export default function Navbar() {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
 
-  // Hide/show navbar on scroll
+  // Hide/show navbar on scroll (unchanged)
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setVisible(false);
-        setDropdownOpen(false); // Close dropdown when scrolling down
+        setDropdownOpen(false);
       } else {
         setVisible(true);
       }
@@ -35,7 +35,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  // Close dropdown on click outside
+  // Close dropdown on click outside (unchanged)
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -51,15 +51,12 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change (unchanged)
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Disable body scroll when mobile menu is open
+  // Disable body scroll when mobile menu is open (unchanged)
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -79,16 +76,16 @@ export default function Navbar() {
             w-[92%] md:w-[90%] max-w-6xl 
             rounded-2xl md:rounded-full 
             bg-black/60 backdrop-blur-md border border-white/20 
-            px-4 py-2 flex items-center justify-between shadow-lg 
+            px-2 md:px-2 py-2 flex items-center justify-between shadow-lg 
             transition-transform duration-300 
             ${visible ? "translate-y-0" : "-translate-y-[150%]"}`}
       >
-        {/* Logo/Brand Name */}
-        <Link href="/" className="text-lg font-bold text-white ml-2 md:ml-4">
+        {/* Logo – no extra margin */}
+        <Link href="/" className="text-lg font-bold text-white px-4 ">
           CarbonForm
         </Link>
 
-        {/* Desktop Navigation Links (Hidden on small screens) */}
+        {/* Desktop Navigation Links (centered absolutely) */}
         <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-white absolute left-1/2 -translate-x-1/2">
           <Link href="/" className={pathname === "/" ? "text-orange-500" : ""}>
             Home
@@ -97,7 +94,7 @@ export default function Navbar() {
             href="/about"
             className={pathname === "/about" ? "text-orange-500" : ""}
           >
-            My story
+            About
           </Link>
           <div className="relative">
             <button
@@ -108,15 +105,15 @@ export default function Navbar() {
               Services
             </button>
           </div>
-          <Link
+          {/* <Link
             href="/projects"
             className={pathname === "/projects" ? "text-orange-500" : ""}
           >
             Projects
-          </Link>
+          </Link> */}
         </div>
 
-        {/* Dropdown positioned relative to the entire navbar */}
+        {/* Dropdown – unchanged */}
         <AnimatePresence>
           {dropdownOpen && (
             <div
@@ -128,10 +125,10 @@ export default function Navbar() {
           )}
         </AnimatePresence>
 
-        {/* Desktop Connect Button (Hidden on small screens) */}
+        {/* Desktop Connect Button – no right margin */}
         <div className="hidden lg:block">
           <Link
-            href="#"
+            href="/contact"
             className="bg-orange-500 text-white text-md font-semibold px-5 py-3 rounded-full 
                        hover:bg-orange-600 transition-all flex items-center"
           >
@@ -140,7 +137,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button (Visible on small screens) */}
+        {/* Mobile Menu Button – no right margin */}
         <div className="lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

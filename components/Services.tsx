@@ -1,14 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
 
 const services = [
-  { title: "Web Development" },
-  { title: "UI/UX Designing" },
   { title: "Full Stack Development" },
-  { title: "Next.js Development" },
-  { title: "React Development" },
-  { title: "SEO Optimization" },
-  { title: "Performance Optimization" },
-  { title: "Content Strategy" },
+  { title: "UI/UX Designing" },
+  { title: "API & Backend Development" },
+  { title: "SEO & Performance" },
+  { title: "Technical Consulting" },
+  
 ];
 
 export default function MyServices() {

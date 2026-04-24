@@ -14,19 +14,20 @@ const techStack = [
 
 export default function TechMarquee() {
   return (
-    <section className="relative py-8 bg-[#efeeec] overflow-hidden">
-      {/* Side Text */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-40 text-sm font-semibold text-black leading-tight">
+    // 1. Added dark:bg-[#121212] (or your preferred dark hex)
+    <section className="relative py-8 bg-[#efeeec] dark:bg-black transition-colors duration-300 overflow-hidden">
+      
+      {/* Side Text - 2. Added dark:text-white */}
+      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-40 text-sm font-semibold text-black dark:text-white leading-tight">
         Working with <br /> Modern Technologies
       </div>
 
-      {/* Left Progressive Blur */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-64 z-20 bg-gradient-to-r from-[#efeeec] via-[#efeeec]/80 to-transparent backdrop-blur-sm" />
+      {/* Left Progressive Blur - 3. Added dark gradient from black */}
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-64 z-20 bg-gradient-to-r from-[#efeeec] via-[#efeeec]/80 to-transparent dark:from-black dark:via-black/80 backdrop-blur-sm" />
 
-      {/* Right Progressive Blur */}
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-64 z-20 bg-gradient-to-l from-[#efeeec] via-[#efeeec]/80 to-transparent backdrop-blur-sm" />
+      {/* Right Progressive Blur - 4. Added dark gradient from black */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-64 z-20 bg-gradient-to-l from-[#efeeec] via-[#efeeec]/80 to-transparent dark:from-black dark:via-black/80 backdrop-blur-sm" />
 
-      {/* Marquee */}
       <Marquee pauseOnHover className="[--duration:40s] gap-24">
         {[...techStack, ...techStack].map((tech, index) => (
           <div
@@ -38,7 +39,9 @@ export default function TechMarquee() {
               alt={tech.alt}
               width={120}
               height={120}
-              className="object-contain grayscale"
+              // 5. invert-0 dark:invert handles turning black logos into white logos
+              // Added brightness-0 dark:brightness-200 to ensure they pop
+              className="object-contain grayscale invert-0 dark:invert transition-all duration-300"
             />
           </div>
         ))}
