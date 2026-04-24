@@ -2,45 +2,33 @@
 "use client";
 
 import React from "react";
+import CrystalScene from "./CrystalScene";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden px-4 py-4 bg-[#efeeec] dark:bg-neutral-900">
       <div className="relative w-full h-full rounded-4xl overflow-hidden">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source src="/videos/neotwo-pingpong.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div className="absolute inset-0 z-0">
+          <CrystalScene />
+        </div>
 
-        {/* Blurry Overlay only inside the rounded image */}
-        <div className="absolute inset-0"></div>
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-slate-900/25 via-slate-800/10 to-transparent" />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white min-h-[calc(100vh-80px)] px-4">
+        <div className="pointer-events-none relative z-10 flex min-h-[calc(100vh-80px)] flex-col items-end justify-end px-6 pb-10 text-right text-white md:px-10 md:pb-12">
           <h1 className="text-4xl md:text-8xl font-semibold leading-tight">
             <span className="block">I Build </span>
             <span className="block">Code & Design</span>
           </h1>
 
-          <p className="mt-2 text-sm md:text-base text-gray-300">
-            React • Next.js • Node.js • PostgreSQL • MongoDB
-          </p>
 
-          <div className="absolute bottom-8 right-6 bg-black/20 rounded-lg px-6 py-4 flex items-center gap-3 shadow-lg border border-gray-700">
-            <div>
-              <p className="text-sm font-semibold text-white">
-                3+ Years Experience
-              </p>
-              <p className="text-xs text-gray-300">Full-Stack Development</p>
-            </div>
-          </div>
+        </div>
+
+        <div className="pointer-events-none absolute bottom-8 left-6 z-10  px-4 py-3 text-left  backdrop-blur-[1px] md:bottom-10 md:left-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
+            3+ Years Experience
+          </p>
+          <p className="mt-1 text-[11px] text-white/70">Full-Stack Development</p>
         </div>
       </div>
     </section>
