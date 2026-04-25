@@ -4,17 +4,11 @@ import { Canvas } from "@react-three/fiber";
 import { useState, useMemo } from "react";
 import Crystal from "./Crystal";
 
+// if give more time, add more colors and maybe a toggle for random vs sequential color changes
 const GEM_COLORS = [
-  "#50C878",
-  "#E0115F",
-  "#9966CC",
-  "#082567",
-  "#FFD700",
-  "#8B0000",
-  "#00FFFF",
-  "#ffffff",
-];
 
+  "#ffffff"
+];
 function adjustColor(hex: string, amount: number) {
   let col = hex.replace("#", "");
   let num = parseInt(col, 16);

@@ -51,7 +51,7 @@ export default function Crystal({ color, onClick }: any) {
   return (
     <Float rotationIntensity={0} floatIntensity={0.4}>
       <group ref={groupRef}>
-        <mesh geometry={geometry} scale={0.7} onClick={onClick}>
+        <mesh geometry={geometry} scale={0.6} onClick={onClick}>
           <MeshTransmissionMaterial
             transmission={1}
             thickness={0.4}
