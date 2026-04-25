@@ -5,13 +5,10 @@ import { useState, useMemo } from "react";
 import Crystal from "./Crystal";
 
 // if give more time, add more colors and maybe a toggle for random vs sequential color changes
-const GEM_COLORS = [
-
-  "#ffffff"
-];
+const GEM_COLORS = ["#ffffff"];
 function adjustColor(hex: string, amount: number) {
-  let col = hex.replace("#", "");
-  let num = parseInt(col, 16);
+  const col = hex.replace("#", "");
+  const num = parseInt(col, 16);
 
   let r = (num >> 16) + amount;
   let g = ((num >> 8) & 0xff) + amount;
@@ -34,17 +31,14 @@ export default function CrystalScene() {
 
   // 🔥 dynamic gradient
   const background = useMemo(() => {
-    const light = adjustColor(currentColor, 120);  // lighter center
-    const dark = adjustColor(currentColor, -80);   // darker edges
+    const light = adjustColor(currentColor, 120); // lighter center
+    const dark = adjustColor(currentColor, -80); // darker edges
 
     return `radial-gradient(circle at center, ${light} 0%, ${dark} 100%)`;
   }, [currentColor]);
 
   return (
-    <div
-      className="relative h-screen w-full"
-      style={{ background }}
-    >
+    <div className="relative h-screen w-full" style={{ background }}>
       <Canvas camera={{ position: [0, 0, 5], fov: 40 }} gl={{ alpha: true }}>
         <ambientLight intensity={0.7} />
 

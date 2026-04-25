@@ -1,10 +1,16 @@
 "use client";
 import { Float, MeshTransmissionMaterial } from "@react-three/drei";
-import { ThreeEvent, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
-export default function Crystal({ color, onClick }: any) {
+export default function Crystal({
+  color,
+  onClick,
+}: {
+  color: string;
+  onClick?: () => void;
+}) {
   const groupRef = useRef<THREE.Group>(null);
 
   const rotationRef = useRef(new THREE.Vector2(0.3, 0.5));
@@ -58,7 +64,7 @@ export default function Crystal({ color, onClick }: any) {
             roughness={0.02}
             ior={1.45}
             chromaticAberration={0.02}
-            color={color} 
+            color={color}
             backside
             samples={8}
             envMapIntensity={6}
