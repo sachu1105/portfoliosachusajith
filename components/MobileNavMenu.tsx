@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -40,6 +41,11 @@ export default function MobileNavMenu() {
       transition={{ duration: 0.3 }}
       className="fixed inset-0 bg-black/95 z-40 lg:hidden flex flex-col items-center justify-center"
     >
+      {/* Theme Toggler in top right */}
+      <div className="absolute top-6 right-6">
+        <AnimatedThemeToggler />
+      </div>
+
       <motion.ul
         variants={listVariants}
         initial="hidden"
