@@ -16,7 +16,7 @@ export default function HeroSection() {
 
         {/* Content */}
         <div className="pointer-events-none relative z-10 flex min-h-[calc(100vh-80px)] flex-col items-end justify-end px-6 pb-10 text-right text-white md:px-10 md:pb-12">
-          <h1 className="text-4xl md:text-8xl font-semibold leading-tight">
+          <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
             <span className="block">I Build </span>
             <span className="block">Code & Design</span>
           </h1>
