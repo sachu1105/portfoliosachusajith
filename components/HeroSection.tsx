@@ -16,19 +16,19 @@ export default function HeroSection() {
 
         {/* Content */}
         <div className="pointer-events-none relative z-10 flex min-h-[calc(100vh-80px)] flex-col items-end justify-end px-6 pb-10 text-right text-white md:px-10 md:pb-12">
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
-            <span className="block">I Build </span>
-            <span className="block">Code & Design</span>
+          <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-black font-archivo">
+            <span className="block ">I Build </span>
+            <span className="block ">Code & Design</span>
           </h1>
-
-
         </div>
 
         <div className="pointer-events-none absolute bottom-8 left-6 z-10  px-4 py-3 text-left  backdrop-blur-[1px] md:bottom-10 md:left-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-black/85 font-archivo">
             3+ Years Experience
           </p>
-          <p className="mt-1 text-[11px] text-white/70">Full-Stack Development</p>
+          <p className="mt-1 text-[11px] text-black/70">
+            Full-Stack Development
+          </p>
         </div>
       </div>
     </section>

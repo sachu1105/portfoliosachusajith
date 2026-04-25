@@ -12,7 +12,6 @@ export default function Crystal({
   onClick?: () => void;
 }) {
   const groupRef = useRef<THREE.Group>(null);
-
   const rotationRef = useRef(new THREE.Vector2(0.3, 0.5));
 
   const geometry = useMemo(() => {
@@ -48,7 +47,9 @@ export default function Crystal({
 
   useFrame((_, delta) => {
     if (!groupRef.current) return;
-    rotationRef.current.y += delta * 0.15;
+    // Cap delta to prevent massive jumps when returning to a background tab
+    const safeDelta = Math.min(delta, 0.1); 
+    rotationRef.current.y += safeDelta * 0.15;
 
     groupRef.current.rotation.y = rotationRef.current.y;
     groupRef.current.rotation.x = rotationRef.current.x;
@@ -58,16 +59,21 @@ export default function Crystal({
     <Float rotationIntensity={0} floatIntensity={0.4}>
       <group ref={groupRef}>
         <mesh geometry={geometry} scale={0.6} onClick={onClick}>
-          <MeshTransmissionMaterial
+         <MeshTransmissionMaterial
             transmission={1}
             thickness={0.4}
-            roughness={0.02}
-            ior={1.45}
+            roughness={0} // 🔥 Changed to 0 for zero "frosting"
+            ior={1.8} // 🔥 Increased from 1.45 to 1.8 for sharper crystal refractions
             chromaticAberration={0.02}
             color={color}
+            attenuationColor="#ffffff"
+            attenuationDistance={2.5} 
             backside
             samples={8}
-            envMapIntensity={6}
+            resolution={1024}
+            envMapIntensity={2} // 🔥 Dialed back down so it doesn't wash out
+            clearcoat={1} // 🔥 Adds a perfectly sharp glassy outer reflection
+            clearcoatRoughness={0}
           />
         </mesh>
       </group>
