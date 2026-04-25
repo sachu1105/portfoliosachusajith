@@ -57,7 +57,7 @@ export default function MobileNavMenu() {
         {/* Connect Button for Mobile */}
         <motion.li variants={itemVariants} className="mt-8">
           <Link
-            href="#"
+            href="/contact"
             className="bg-orange-500 text-white text-lg font-semibold px-6 py-4 rounded-full 
                        hover:bg-orange-600 transition-all flex items-center"
           >

@@ -33,17 +33,19 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased min-h-screen`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="Light"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <SmoothScrollProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            <div className="min-h-screen flex flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>

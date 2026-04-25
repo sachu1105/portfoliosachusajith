@@ -25,7 +25,7 @@ export default function AboutMe() {
                     Experiences
                     <div className="ml-2 w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden bg-gray-300 flex-shrink-0">
                       <Image
-                        src="/images/mesrati.jpg"
+                        src="/images/design.png"
                         alt="Developer profile"
                         width={64}
                         height={64}

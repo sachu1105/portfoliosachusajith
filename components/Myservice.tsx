@@ -1,63 +1,44 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import FaqSection from "@/components/FaqSection";
+import Link from "next/link";
 
 const services = [
   {
-    title: "Web Development",
-    description:
-      "I build modern, responsive, and scalable websites that provide seamless user experiences. From concept to deployment, I ensure your site is fast, secure, and visually stunning.",
-    features: ["Responsive design", "Cross-browser compatibility", "Clean code architecture"],
-    image: "/images/mesrati.jpg",
-  },
-  {
-    title: "UI/UX Designing",
-    description:
-      "Creating intuitive and visually engaging interfaces that balance beauty with functionality. My designs are user-first, ensuring every click and scroll feels effortless.",
-    features: ["User research", "Wireframing", "High-fidelity designs"],
-    image: "/images/mesrati.jpg",
-  },
-  {
     title: "Full Stack Development",
     description:
-      "From front-end visuals to back-end logic, I handle complete application development with smooth integration and efficient performance across the stack.",
-    features: ["Frontend & backend integration", "Database management", "API development"],
-    image: "/images/mesrati.jpg",
+      "End-to-end web applications — from pixel-perfect React/Next.js frontends to robust Node.js backends. I handle SSR, SSG, REST APIs, database design, and deployment so you get a complete, production-ready product.",
+    features: ["React & Next.js (SSR/SSG)", "REST API development", "Database integration"],
+    image: "/images/fullstack.png",
   },
   {
-    title: "Next.js Development",
+    title: "UI/UX Design",
     description:
-      "Leveraging Next.js for blazing-fast, SEO-friendly, and scalable applications. I specialize in building SSR/SSG-powered sites with smooth navigation and optimized performance.",
-    features: ["Server-side rendering (SSR)", "Static site generation (SSG)", "API routes"],
-    image: "/images/mesrati.jpg",
+      "User-first interfaces that balance beauty with function. I go from user research and wireframes to high-fidelity Figma prototypes — every interaction feels intentional and effortless.",
+    features: ["User research & wireframing", "High-fidelity prototypes", "Design systems"],
+    image: "/images/uiux.png",
   },
   {
-    title: "React Development",
+    title: "API & Backend Development",
     description:
-      "Building dynamic, component-driven interfaces using React. My focus is on reusable code, smooth animations, and state management that keeps apps responsive and maintainable.",
-    features: ["Reusable components", "State management", "Performance tuning"],
-    image: "/images/mesrati.jpg",
+      "Scalable, secure backends built for real traffic. I design database schemas, build authentication flows, set up background workers, and integrate third-party services with clean, maintainable code.",
+    features: ["Node.js / PostgreSQL / Redis", "Auth & authorization flows", "Background jobs & queues"],
+    image: "/images/webdev.png",
   },
   {
-    title: "SEO Optimization",
+    title: "SEO & Performance",
     description:
-      "Improving your site’s visibility with technical SEO, structured data, and content strategies to attract more organic traffic and higher search engine rankings.",
-    features: ["On-page SEO", "Technical SEO", "Keyword optimization"],
-    image: "/images/mesrati.jpg",
+      "Speed and visibility are not afterthoughts. I optimize Core Web Vitals, implement technical SEO, add structured data, and set up caching strategies so your site ranks and loads fast.",
+    features: ["Core Web Vitals & Lighthouse", "Technical & on-page SEO", "Caching & lazy loading"],
+    image: "/images/seo.png",
   },
   {
-    title: "Performance Optimization",
+    title: "Technical Consulting",
     description:
-      "Speed matters. I optimize your website’s loading time, reduce bottlenecks, and ensure smooth performance for better user experience and search rankings.",
-    features: ["Code optimization", "Lazy loading", "Caching strategies"],
-    image: "/images/mesrati.jpg",
-  },
-  {
-    title: "Content Strategy",
-    description:
-      "Crafting a content roadmap that aligns with your brand’s goals, engages your audience, and drives measurable business growth.",
-    features: ["Content planning", "Brand messaging", "Engagement analysis"],
-    image: "/images/mesrati.jpg",
+      "Stuck on architecture decisions, choosing a tech stack, or dealing with performance bottlenecks? I do pragmatic code audits and system design reviews with direct, actionable recommendations.",
+    features: ["System design & architecture", "Code & tech stack audits", "Scalability planning"],
+    image: "/images/techincal.png",
   },
 ];
 
@@ -71,7 +52,7 @@ export default function ServicesScroll() {
             <h1 className="text-6xl lg:text-8xl font-bold">My</h1>
             <div className="w-16 h-16 rounded-full overflow-hidden">
               <Image
-                src="/images/mesrati.jpg"
+                src="/images/serviceone.jpg"
                 alt="Team"
                 width={64}
                 height={64}
@@ -86,12 +67,12 @@ export default function ServicesScroll() {
               We push users along the funnel through performance driven content
               marketing
             </p>
-            <button
-             
+            <Link
+              href="/contact"
               className="px-8 py-3 text-lg rounded-full bg-white dark:bg-gray-700 border-black hover:bg-black hover:text-white transition-colors cursor-pointer"
             >
               Connect With Me
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -153,6 +134,8 @@ export default function ServicesScroll() {
           </div>
         ))}
       </div>
+
+      <FaqSection />
     </div>
   );
 }
