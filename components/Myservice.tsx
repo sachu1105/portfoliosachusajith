@@ -64,8 +64,7 @@ export default function ServicesScroll() {
 
           <div className="flex flex-col items-start lg:items-end gap-6 max-w-md">
             <p className="text-xl font-semibold text-left lg:text-right">
-              We push users along the funnel through performance driven content
-              marketing
+              Building digital experiences that are fast, intuitive, and built to scale.
             </p>
             <Link
               href="/contact"

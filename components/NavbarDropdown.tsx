@@ -11,7 +11,7 @@ export default function NavbarDropdown() {
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[90vw] max-w-6xl
-                 bg-white rounded-[20px] lg:rounded-[30px] shadow-lg p-4 lg:p-8 z-40"
+                 bg-white dark:bg-black dark:text-white rounded-[20px] lg:rounded-[30px] shadow-lg p-4 lg:p-8 z-40"
     >
       {/* Services Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
@@ -26,7 +26,7 @@ export default function NavbarDropdown() {
               sizes="(max-width: 768px) 45vw, (max-width: 1024px) 22vw, 200px"
             />
           </div>
-          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black">
+          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
             Custom Web Development
           </h3>
           <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">
@@ -45,7 +45,7 @@ export default function NavbarDropdown() {
               sizes="(max-width: 768px) 45vw, (max-width: 1024px) 22vw, 200px"
             />
           </div>
-          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black ">
+          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
             UI/UX Design
           </h3>
           <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">
@@ -64,7 +64,7 @@ export default function NavbarDropdown() {
               sizes="(max-width: 768px) 45vw, (max-width: 1024px) 22vw, 200px"
             />
           </div>
-          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black">
+          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
             Full-Stack Solutions
           </h3>
           <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">
@@ -83,7 +83,7 @@ export default function NavbarDropdown() {
               sizes="(max-width: 768px) 45vw, (max-width: 1024px) 22vw, 200px"
             />
           </div>
-          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black">
+          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
             SEO & Performance
           </h3>
           <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">

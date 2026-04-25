@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import NavbarDropdown from "./NavbarDropdown";
 import MobileNavMenu from "./MobileNavMenu";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -54,7 +55,7 @@ export default function Navbar() {
   // Close mobile menu on route change (unchanged)
   useEffect(() => {
     if (isMobileMenuOpen) setIsMobileMenuOpen(false);
-  }, [pathname]);
+  }, [pathname, isMobileMenuOpen]);
 
   // Disable body scroll when mobile menu is open (unchanged)
   useEffect(() => {
@@ -126,7 +127,8 @@ export default function Navbar() {
         </AnimatePresence>
 
         {/* Desktop Connect Button – no right margin */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
+          <AnimatedThemeToggler />
           <Link
             href="/contact"
             className="bg-orange-500 text-white text-md font-semibold px-5 py-3 rounded-full 

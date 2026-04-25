@@ -1,14 +1,19 @@
 import type React from "react";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Archivo, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Inter as the only base font
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+// Poppins as the main base font for the website
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "portfolio",
@@ -33,7 +38,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased min-h-screen`}>
+      <body
+        className={`${poppins.variable} ${archivo.variable} font-sans antialiased min-h-screen`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
