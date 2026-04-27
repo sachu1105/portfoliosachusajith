@@ -41,7 +41,7 @@ const skillGroups: SkillGroup[] = [
 
 export default function SkillsSection() {
   return (
-    <section className="bg-[#efeeec] dark:bg-black py-24 px-6 md:px-10 lg:px-16 transition-colors duration-300">
+    <section className="bg-[#efeeec] dark:bg-black py-8 px-6 md:px-10 lg:px-16 transition-colors duration-300">
       <div className="mx-auto ">
         
        

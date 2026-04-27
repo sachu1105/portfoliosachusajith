@@ -96,7 +96,7 @@ export default function ExperienceSwipe() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  bg-[#efeeec] dark:bg-neutral-950 py-20 overflow-hidden">
+    <div className="flex flex-col items-center justify-center  bg-[#efeeec] dark:bg-neutral-950 py-10 overflow-hidden">
       
       {/* Top Pill */}
       <div className="px-4 py-1.5 mb-12 border border-gray-400 dark:border-white/10 rounded-full  dark:bg-neutral-900 text-sm text-gray-600 dark:text-gray-300 font-medium z-10">
