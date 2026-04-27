@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import NavbarDropdown from "./NavbarDropdown";
 import AboutDropdown from "./AboutDropdown";
 import MobileNavMenu from "./MobileNavMenu";
-import { ArrowLeft, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 
 const navItems = [

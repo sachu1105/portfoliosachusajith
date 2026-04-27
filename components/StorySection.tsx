@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 export default function StorySection() {
   return (
     <section className="bg-[#efeeec] dark:bg-black py-24 px-6 md:px-10 lg:px-16 transition-colors duration-300">
@@ -16,7 +14,7 @@ export default function StorySection() {
             them to actually <span className="font-bold">work.</span>
           </h2>
           <p className="mt-8 text-lg md:text-xl font-medium text-black/70 dark:text-white/70 max-w-2xl">
-            Designer turned developer turned system builder. The journey wasn't planned — it just kept going deeper.
+            Designer turned developer turned system builder. The journey wasn&apos;t planned — it just kept going deeper.
           </p>
         </div>
 
@@ -32,13 +30,13 @@ export default function StorySection() {
               It started with pixels. I spent the early part of my career as a UI/UX designer — obsessing over spacing, color, and how things felt to use. But somewhere along the way I got frustrated. I kept handing off designs and wondering why the final product never matched the vision. So I decided to learn how to build it myself.
             </p>
             <p>
-              That curiosity pulled me toward <strong className="font-medium text-black dark:text-white">React and Next.js</strong>. I liked that I could take something I designed and make it real. But then I hit the next wall — I didn't understand what was happening on the other side. I chose to do my MCA not for the degree, but for the foundation. I wanted to understand how systems actually work.
+              That curiosity pulled me toward <strong className="font-medium text-black dark:text-white">React and Next.js</strong>. I liked that I could take something I designed and make it real. But then I hit the next wall — I didn&apos;t understand what was happening on the other side. I chose to do my MCA not for the degree, but for the foundation. I wanted to understand how systems actually work.
             </p>
             <p>
               Each job taught me a new layer. At <strong className="font-medium text-black dark:text-white">SMBS</strong>, I laid the backend basics while owning the frontend. At <strong className="font-medium text-black dark:text-white">IhubRobotics</strong>, I got real backend reps — APIs, data flows, LLM integration for a patient intake system that actually reduced manual effort by 40%.
             </p>
             <p>
-              At <strong className="font-medium text-black dark:text-white">Malayala Manorama</strong>, I crossed over fully. I'm now designing system architecture, deploying full-stack apps on air-gapped infrastructure, and integrating local LLMs for internal tooling — production-grade, no external API dependency.
+              At <strong className="font-medium text-black dark:text-white">Malayala Manorama</strong>, I crossed over fully. I&apos;m now designing system architecture, deploying full-stack apps on air-gapped infrastructure, and integrating local LLMs for internal tooling — production-grade, no external API dependency.
             </p>
           </div>
         </div>
@@ -52,13 +50,13 @@ export default function StorySection() {
           </div>
           <div className="md:col-span-8 lg:col-span-9 space-y-8 text-lg md:text-xl text-black/60 dark:text-white/80 font-light leading-relaxed max-w-3xl">
             <p>
-              I don't open a code editor first. I start by collecting requirements, then I sketch the system — what the data flow looks like, where the bottlenecks will be, what trade-offs I'm making. I choose the stack based on what the project actually needs, not what I'm comfortable with.
+              I don&apos;t open a code editor first. I start by collecting requirements, then I sketch the system — what the data flow looks like, where the bottlenecks will be, what trade-offs I&apos;m making. I choose the stack based on what the project actually needs, not what I&apos;m comfortable with.
             </p>
             <p>
               Once the architecture makes sense on paper, I use Cursor plan mode to lay the backend foundation — <strong className="font-medium text-black dark:text-white">FastAPI or Node.js</strong> depending on the job. Then I move to the frontend. I pull inspiration from Dribbble, Behance, and Awwwards, feed ideas into Claude or Gemini, prototype in Figma, and ship it in Next.js. Frontend and backend connect at the end, and then I stress-test the performance from every angle I can find.
             </p>
             <p>
-              Cost-effectiveness isn't an afterthought — it's a constraint I design around from day one. I'm still learning system design — honestly and openly. But I'm not waiting until I'm "ready" to build real things. The projects at Manorama taught me more about architecture than any course could.
+              Cost-effectiveness isn&apos;t an afterthought — it&apos;s a constraint I design around from day one. I&apos;m still learning system design — honestly and openly. But I&apos;m not waiting until I&apos;m &quot;ready&quot; to build real things. The projects at Manorama taught me more about architecture than any course could.
             </p>
           </div>
         </div>
