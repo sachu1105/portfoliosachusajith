@@ -9,7 +9,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "My Story", href: "/about" },
   { name: "Services", href: "/myservices" },
-  { name: "Resume", href: "/resume" },
+  { name: "Resume", href: "/resume.pdf", external: true },
 ];
 
 const listVariants = {
@@ -56,7 +56,7 @@ export default function MobileNavMenu({ onNavigate, onClose }: MobileNavMenuProp
       </button>
 
       <div className="absolute top-4 left-4">
-        <AnimatedThemeToggler />
+        <AnimatedThemeToggler iconClassName="text-neutral-900 dark:text-white" />
       </div>
 
       <motion.ul
@@ -67,13 +67,25 @@ export default function MobileNavMenu({ onNavigate, onClose }: MobileNavMenuProp
       >
         {navLinks.map((link) => (
           <motion.li key={link.href} variants={itemVariants}>
-            <Link
-              href={link.href}
-              onClick={onNavigate}
-              className="text-neutral-900 dark:text-white text-3xl font-medium"
-            >
-              {link.name}
-            </Link>
+            {link.external ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onNavigate}
+                className="text-neutral-900 dark:text-white text-3xl font-medium"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                href={link.href}
+                onClick={onNavigate}
+                className="text-neutral-900 dark:text-white text-3xl font-medium"
+              >
+                {link.name}
+              </Link>
+            )}
           </motion.li>
         ))}
 

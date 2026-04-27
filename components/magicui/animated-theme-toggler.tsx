@@ -8,9 +8,10 @@ import { cn } from "@/lib/utils";
 
 type props = {
   className?: string;
+  iconClassName?: string;
 };
 
-export const AnimatedThemeToggler = ({ className }: props) => {
+export const AnimatedThemeToggler = ({ className, iconClassName }: props) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const { resolvedTheme, setTheme } = useTheme();
@@ -55,7 +56,11 @@ export const AnimatedThemeToggler = ({ className }: props) => {
   };
   return (
     <button ref={buttonRef} onClick={changeTheme} className={cn(className)}>
-      {isDarkMode ? <SunDim /> : <Moon />}
+      {isDarkMode ? (
+        <SunDim className={cn("h-5 w-5", iconClassName)} />
+      ) : (
+        <Moon className={cn("h-5 w-5", iconClassName)} />
+      )}
     </button>
   );
 };
