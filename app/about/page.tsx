@@ -1,4 +1,3 @@
-import ExperienceSwipe from "@/components/Experience";
 import SkillsStack from "@/components/SkillsStack";
 import SkillsVisionHero from "@/components/SkillsVisionHero";
 

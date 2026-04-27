@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import { CalendarIcon, HomeIcon, MailIcon } from "lucide-react";
 import Link from "next/link";
 import type React from "react";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";

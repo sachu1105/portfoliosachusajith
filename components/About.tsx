@@ -1,8 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, ArrowUpRight, LayoutGrid } from "lucide-react";
-import { motion } from "framer-motion";
 
 const technicalSkills = [
   "JavaScript",
@@ -84,7 +81,7 @@ export default function AboutMe() {
           {/* Footer Quote/Philosophy */}
           <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/10">
             <p className="text-sm text-gray-500 dark:text-gray-400 font-medium italic">
-              "I build with a focus on precision, removing external dependencies, and creating architectures that are closer to production from day one."
+              &quot;I build with a focus on precision, removing external dependencies, and creating architectures that are closer to production from day one.&quot;
             </p>
           </div>
         </div>
