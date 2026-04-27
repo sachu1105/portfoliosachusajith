@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { DockDemo } from "./SocialTags";
 
 export default function Footer() {
+  const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
@@ -62,6 +63,10 @@ export default function Footer() {
   
   const opacity = Math.min(scrollProgress * 2, 1);
 
+  if (pathname === "/contact") {
+    return null;
+  }
+
   return (
     <div className="dark:bg-neutral-900 px-4 md:px-8 lg:px-6 py-6">
       <footer className="bg-white dark:bg-black rounded-3xl overflow-hidden shadow-lg">
@@ -74,7 +79,7 @@ export default function Footer() {
               {/* Centered title on mobile */}
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">Connect with me</h3>
               
-              <div className="flex items-center dark:bg-neutral-900 rounded-full overflow-hidden border border-neutral-700">
+              {/* <div className="flex items-center dark:bg-neutral-900 rounded-full overflow-hidden border border-neutral-700">
                 <input
                   type="email"
                   placeholder="Your Email Address"
@@ -83,7 +88,7 @@ export default function Footer() {
                 <button className="bg-[#A8F5E1] p-2 md:p-3 rounded-full shrink-0 m-1 hover:scale-105 transition">
                   <ArrowUpRight className="text-black" size={20} />
                 </button>
-              </div>
+              </div> */}
 
               {/* Centered social dock on mobile */}
               <div className="mt-6 flex justify-center lg:justify-start">

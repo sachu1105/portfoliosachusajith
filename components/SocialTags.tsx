@@ -146,7 +146,7 @@ export function DockDemo() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <div className="size-12 rounded-full flex items-center justify-center ">
-                  <AnimatedThemeToggler />
+                  <AnimatedThemeToggler iconClassName="text-black dark:text-white" />
                 </div>
               </TooltipTrigger>
               <TooltipContent>
