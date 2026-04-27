@@ -15,30 +15,12 @@ export default function NavbarDropdown() {
     >
       {/* Services Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
-        {/* Web Development */}
-        <div className="flex flex-col">
-          <div className="relative w-full aspect-[5/3] mb-2 lg:mb-3">
-            <Image
-              src="/images/serviceone.jpg"
-              alt="Web Development"
-              fill
-              className="object-cover rounded-lg lg:rounded-xl"
-              sizes="(max-width: 768px) 45vw, (max-width: 1024px) 22vw, 200px"
-            />
-          </div>
-          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
-            Web Development
-          </h3>
-          <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">
-            Build scalable, fast, and secure websites using the latest web technologies.
-          </p>
-        </div>
 
-        {/* UI/UX Design */}
-        <div className="flex flex-col">
+           {/* UI/UX Design */}
+           <div className="flex flex-col">
           <div className="relative w-full aspect-[5/3] mb-2 lg:mb-3">
             <Image
-              src="/images/servicetwo.jpg"
+              src="/images/uiuxtwo.png"
               alt="UI/UX Design"
               fill
               className="object-cover rounded-lg lg:rounded-xl"
@@ -52,20 +34,40 @@ export default function NavbarDropdown() {
             Create visually stunning and user-friendly interfaces that keep visitors engaged.
           </p>
         </div>
-
-        {/* Full-Stack Solutions */}
+        {/* Web Development */}
         <div className="flex flex-col">
           <div className="relative w-full aspect-[5/3] mb-2 lg:mb-3">
             <Image
-              src="/images/servicethree.jpg"
-              alt="Full-Stack Solutions"
+              src="/images/webdevtwo.png"
+              alt="fullstack Development"
               fill
               className="object-cover rounded-lg lg:rounded-xl"
               sizes="(max-width: 768px) 45vw, (max-width: 1024px) 22vw, 200px"
             />
           </div>
           <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
-            Full-Stack Solutions
+            Full Stack Development
+          </h3>
+          <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">
+            Build scalable, fast, and secure websites using the latest web technologies.
+          </p>
+        </div>
+
+     
+
+        {/* Full-Stack Solutions */}
+        <div className="flex flex-col">
+          <div className="relative w-full aspect-[5/3] mb-2 lg:mb-3">
+            <Image
+              src="/images/api&backend.png"
+              alt="Backend & APIs"
+              fill
+              className="object-cover rounded-lg lg:rounded-xl"
+              sizes="(max-width: 768px) 45vw, (max-width: 1024px) 22vw, 200px"
+            />
+          </div>
+          <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
+            Backend & APIs
           </h3>
           <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">
             End-to-end development — from frontend design to backend architecture.
@@ -76,7 +78,7 @@ export default function NavbarDropdown() {
         <div className="flex flex-col">
           <div className="relative w-full aspect-[5/3] mb-2 lg:mb-3">
             <Image
-              src="/images/servicefour.jpg"
+              src="/images/seotwo.png"
               alt="SEO Optimization"
               fill
               className="object-cover rounded-lg lg:rounded-xl"
