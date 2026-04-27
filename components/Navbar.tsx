@@ -71,18 +71,22 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Desktop Navbar - Hidden on mobile */}
       <nav
         ref={navRef}
-        className={`fixed top-3 md:top-6 left-0 right-0 mx-auto z-50 
-            w-[92%] md:w-[90%] max-w-6xl 
-            rounded-2xl md:rounded-full 
+        className={`hidden md:fixed top-3 md:top-6 left-0 right-0 mx-auto z-50 
+            w-[90%] max-w-6xl 
+            rounded-full 
             bg-black/60 backdrop-blur-md border border-white/20 
-            px-2 md:px-2 py-2 flex items-center justify-between shadow-lg 
+            px-2 py-2 md:flex items-center justify-between shadow-lg 
             transition-transform duration-300 
             ${visible ? "translate-y-0" : "-translate-y-[150%]"}`}
       >
-        {/* Logo – no extra margin */}
-        <Link href="/" className="text-lg font-bold text-white px-4 ">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="text-lg font-bold text-white px-4 flex-shrink-0"
+        >
           CarbonForm
         </Link>
 
@@ -106,15 +110,9 @@ export default function Navbar() {
               Services
             </button>
           </div>
-          {/* <Link
-            href="/projects"
-            className={pathname === "/projects" ? "text-orange-500" : ""}
-          >
-            Projects
-          </Link> */}
         </div>
 
-        {/* Dropdown – unchanged */}
+        {/* Dropdown */}
         <AnimatePresence>
           {dropdownOpen && (
             <div
@@ -126,7 +124,7 @@ export default function Navbar() {
           )}
         </AnimatePresence>
 
-        {/* Desktop Connect Button – no right margin */}
+        {/* Desktop Connect Button */}
         <div className="hidden lg:flex items-center gap-4">
           <AnimatedThemeToggler />
           <Link
@@ -138,21 +136,7 @@ export default function Navbar() {
             <ArrowUpRight className="inline ml-1 h-5 w-5" />
           </Link>
         </div>
-
-        {/* Mobile Menu Button – no right margin */}
-        <div className="lg:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-white p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
       </nav>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>{isMobileMenuOpen && <MobileNavMenu />}</AnimatePresence>
     </>
   );
 }
