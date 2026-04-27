@@ -48,7 +48,7 @@ export default function AboutMe() {
         </div>
 
         {/* Right Column */}
-        <div className="dark:bg-white/5 border-l dark:border-white/10 p-6 lg:p-8 flex flex-col justify-between">
+        <div className="dark:bg-white/5 lg:border-l lg:dark:border-white/10 p-6 lg:p-8 flex flex-col justify-between">
           <div className="space-y-8">
 
             {/* Stats */}
