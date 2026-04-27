@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["react-pdf", "pdfjs-dist"],
   /* config options here */
   headers: async () => {
     return [

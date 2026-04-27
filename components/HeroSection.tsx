@@ -4,47 +4,84 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
-import CrystalScene from "./CrystalScene";
 import MobileNavMenu from "./MobileNavMenu";
+import { RetroGrid } from "@/components/ui/retro-grid";
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden px-4 py-4 bg-[#efeeec] dark:bg-neutral-900">
-      <div className="relative w-full h-full rounded-4xl overflow-hidden">
-        {/* Crystal Scene - Hidden on mobile */}
-        <div className="hidden sm:block absolute inset-0 z-0">
-          <CrystalScene />
-        </div>
+    <section className="relative min-h-screen w-full overflow-hidden pt-12 pb-8 sm:pt-16 md:pt-28 bg-[#efeeec] dark:bg-black">
+      {/* Retro grid background */}
+      <RetroGrid
+        className="z-0 opacity-60 dark:opacity-50 [mask-image:radial-gradient(ellipse_at_center,white_32%,rgba(255,255,255,0.75)_56%,transparent_84%)]"
+        angle={65}
+        cellSize={58}
+        lightLineColor="#cbd5e1"
+        darkLineColor="#334155"
+      />
 
-        <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-slate-900/25 via-slate-800/10 to-transparent" />
-
-        {/* Mobile Hamburger Button - Absolute inside hero section */}
+      <div className="relative w-full min-h-[calc(100vh-8rem)] rounded-4xl overflow-hidden flex flex-col items-center justify-center px-4">
+        
+        {/* Mobile Hamburger Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="absolute md:hidden top-4 right-4 z-50 text-white p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black/70 backdrop-blur-md border border-white/30 hover:bg-black/90 transition-all flex items-center justify-center w-12 h-12"
+          className="absolute md:hidden top-4 right-4 z-50 text-slate-800 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 bg-white/70 backdrop-blur-md border border-slate-200 hover:bg-white transition-all flex items-center justify-center w-12 h-12"
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
 
-        {/* Content - Center on mobile, right on desktop */}
-        <div className="pointer-events-none relative z-10 flex min-h-[calc(100vh-80px)] flex-col items-center justify-center px-6 pb-10 text-center text-white sm:items-end sm:justify-end sm:text-right md:px-10 md:pb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold leading-tight text-black font-archivo">
-            <span className="block ">I Build </span>
-            <span className="block ">Code & Design</span>
+        {/* Main Content Container */}
+        <div className="relative z-10 flex flex-col items-center justify-center max-w-5xl mx-auto px-6 text-center">
+          
+          {/* Left Annotation (Hidden on mobile) */}
+          <div className="hidden lg:block absolute -left-16 md:-left-32 top-4 transform -rotate-6">
+            <p className="font-serif italic text-slate-500 dark:text-slate-400 text-lg">
+              Hey, there!<br />I am a<br />Full-Stack Dev
+            </p>
+            {/* Simple curved SVG arrow */}
+            <svg width="40" height="40" viewBox="0 0 100 100" className="absolute -right-8 top-10 stroke-slate-400 dark:stroke-slate-500 fill-none" style={{ strokeWidth: 2 }}>
+              <path d="M10,90 Q40,10 90,50" />
+              <path d="M80,40 L90,50 L80,60" />
+            </svg>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-slate-900 dark:text-white leading-[1.05] font-archivo">
+            I build code <br className="hidden md:block" />
+            & design.
           </h1>
+
+          {/* Subtext */}
+          <p className="mt-8 text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            I architect scalable backends, deploy LLM pipelines, and own full production cycles in air-gapped environments. Specializing in Next.js, FastAPI, and bringing internal concepts to life.
+          </p>
+
+          {/* Right Annotation (Hidden on mobile) */}
+          <div className="hidden lg:block absolute right-0 xl:-right-44 top-1/2 -translate-y-1/2 transform rotate-3">
+            {/* Simple curved SVG arrow */}
+            <svg width="50" height="50" viewBox="0 0 100 100" className="absolute -left-12 -top-4 stroke-slate-400 dark:stroke-slate-500 fill-none" style={{ strokeWidth: 2 }}>
+              <path d="M90,10 Q30,30 20,80" />
+              <path d="M10,70 L20,80 L30,70" />
+            </svg>
+            <p className="font-serif italic text-slate-500 dark:text-slate-300 text-lg text-left max-w-[220px]">
+              Recently built an<br />
+              <span className="font-bold text-slate-800 dark:text-white">AI Document Platform</span><br />
+              from the ground up
+            </p>
+          </div>
+
         </div>
 
-        <div className="pointer-events-none absolute bottom-8 left-6 z-10  px-4 py-3 text-left  backdrop-blur-[1px] md:bottom-10 md:left-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-black/85 font-archivo">
-            3+ Years Experience
-          </p>
-          <p className="mt-1 text-[11px] text-black/70">
-            Full-Stack Development
-          </p>
+        {/* Keep Scrolling Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-slate-400 dark:text-slate-500 text-sm font-medium">
+          Keep Scrolling
+          <div className="w-4 h-6 border-2 border-slate-300 dark:border-slate-600 rounded-full flex justify-center p-[2px]">
+            <div className="w-1 h-1 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce" />
+          </div>
         </div>
+
       </div>
 
       {/* Mobile Menu Overlay */}

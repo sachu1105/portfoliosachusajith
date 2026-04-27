@@ -5,19 +5,21 @@ import { useState, useEffect, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import NavbarDropdown from "./NavbarDropdown";
+import AboutDropdown from "./AboutDropdown";
 import MobileNavMenu from "./MobileNavMenu";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 
 export default function Navbar() {
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [activeDropdown, setActiveDropdown] = useState<"services" | "about" | null>(
+    null
+  );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [visible, setVisible] = useState<boolean>(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
 
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
 
   // Hide/show navbar on scroll (unchanged)
@@ -26,7 +28,7 @@ export default function Navbar() {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setVisible(false);
-        setDropdownOpen(false);
+        setActiveDropdown(null);
       } else {
         setVisible(true);
       }
@@ -42,10 +44,9 @@ export default function Navbar() {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node)
+        !(event.target as HTMLElement).closest('[data-dropdown-trigger="true"]')
       ) {
-        setDropdownOpen(false);
+        setActiveDropdown(null);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -56,6 +57,11 @@ export default function Navbar() {
   useEffect(() => {
     if (isMobileMenuOpen) setIsMobileMenuOpen(false);
   }, [pathname, isMobileMenuOpen]);
+
+  // Close services dropdown when navigating (e.g. "View All Services")
+  useEffect(() => {
+    setActiveDropdown(null);
+  }, [pathname]);
 
   // Disable body scroll when mobile menu is open (unchanged)
   useEffect(() => {
@@ -95,31 +101,53 @@ export default function Navbar() {
           <Link href="/" className={pathname === "/" ? "text-orange-500" : ""}>
             Home
           </Link>
-          <Link
+          {/* <Link
             href="/about"
             className={pathname === "/about" ? "text-orange-500" : ""}
           >
             About
-          </Link>
+          </Link> */}
           <div className="relative">
             <button
-              ref={buttonRef}
-              onClick={() => setDropdownOpen((prev) => !prev)}
+              data-dropdown-trigger="true"
+              onClick={() =>
+                setActiveDropdown((prev) => (prev === "about" ? null : "about"))
+              }
+              className="cursor-pointer"
+            >
+              About Me
+            </button>
+          </div>
+          <div className="relative">
+            <button
+              data-dropdown-trigger="true"
+              onClick={() =>
+                setActiveDropdown((prev) =>
+                  prev === "services" ? null : "services"
+                )
+              }
               className="cursor-pointer"
             >
               Services
             </button>
+            
           </div>
+          <Link
+            href="/resume"
+            className={pathname === "/resume" ? "text-orange-500" : ""}
+          >
+            Resume
+          </Link>
         </div>
 
         {/* Dropdown */}
         <AnimatePresence>
-          {dropdownOpen && (
+          {activeDropdown && (
             <div
               ref={dropdownRef}
               className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-full flex justify-center"
             >
-              <NavbarDropdown />
+              {activeDropdown === "services" ? <NavbarDropdown /> : <AboutDropdown />}
             </div>
           )}
         </AnimatePresence>
@@ -127,14 +155,18 @@ export default function Navbar() {
         {/* Desktop Connect Button */}
         <div className="hidden lg:flex items-center gap-4">
           <AnimatedThemeToggler />
+
+          
           <Link
             href="/contact"
             className="bg-orange-500 text-white text-md font-semibold px-5 py-3 rounded-full 
                        hover:bg-orange-600 transition-all flex items-center"
           >
-            <span>Let&apos;s Connect</span>
-            <ArrowUpRight className="inline ml-1 h-5 w-5" />
+            <span>Contact</span>
+            
           </Link>
+
+        
         </div>
       </nav>
     </>

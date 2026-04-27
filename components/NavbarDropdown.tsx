@@ -27,7 +27,7 @@ export default function NavbarDropdown() {
             />
           </div>
           <h3 className="font-semibold text-sm lg:text-lg mb-1 line-clamp-2 text-black dark:text-white">
-            Custom Web Development
+            Web Development
           </h3>
           <p className="text-gray-600 text-xs lg:text-sm line-clamp-3 lg:line-clamp-none">
             Build scalable, fast, and secure websites using the latest web technologies.

@@ -91,7 +91,7 @@ export default function ServicesScroll() {
           </p>
           <Link
             href="/contact"
-            className="self-start lg:self-auto px-6 py-2.5 text-base rounded-full bg-white dark:bg-gray-700 border border-black dark:border-gray-500 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+            className="self-start lg:self-auto px-6 py-2.5 text-base rounded-full  dark:bg-gray-700 border border-black dark:border-gray-500 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
           >
             Connect With Me
           </Link>
@@ -100,14 +100,6 @@ export default function ServicesScroll() {
     </div>
   );
 
-  // ─── MOBILE VIEW ─────────────────────────────────────────────────────────
-  // Why a completely different mobile view?
-  // The sticky stacking effect requires each card to be `h-screen` so the
-  // next card peeks from below as you scroll past it. On mobile, a single
-  // column layout inside `h-screen` means: image (256px) + big title +
-  // long description + 3 features — all crammed into ~700px with no room
-  // to breathe. Instead we use a clean vertical card list, which is a
-  // well-understood mobile pattern for service pages.
   if (isMobile) {
     return (
       <div className="relative w-full mt-16 sm:mt-24">

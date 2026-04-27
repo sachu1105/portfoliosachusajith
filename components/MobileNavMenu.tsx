@@ -10,6 +10,7 @@ const navLinks = [
   { name: "My Story", href: "/about" },
   { name: "Services", href: "/myservices" },
   { name: "Projects", href: "/projects" },
+  { name: "Resume", href: "/resume" },
 ];
 
 const listVariants = {

@@ -167,19 +167,12 @@ export default function FeaturedWork() {
   // ─── MOBILE VIEW ────────────────────────────────────────────────────────────
   if (isMobile) {
     return (
-      // ✅ FIX 3: `100svh` (small viewport height) is the correct unit for
-      // mobile. `100vh` on Safari includes the browser chrome bar and causes
-      // overflow. `svh` is the actual visible area.
-      // `flex flex-col` lets us push the dots to the bottom without any
-      // hardcoded heights — the scroll container gets `flex-1` and fills
-      // whatever space is left between header and dots.
+  
       <section
         className="relative w-full bg-neutral-900 flex flex-col"
         style={{ minHeight: "100svh" }}
       >
-        {/* ── Header ── */}
-        {/* flex-shrink-0 prevents flexbox from squishing this when the
-            card below is tall. justify-between puts the counter on the right. */}
+     
         <div className="flex items-center justify-between px-5 pt-8 pb-3 flex-shrink-0">
           <h2 className="text-white text-xl font-light tracking-widest opacity-50 uppercase">
             My Works
@@ -192,10 +185,7 @@ export default function FeaturedWork() {
           </span>
         </div>
 
-        {/* ── Horizontal Scroll ── */}
-        {/* flex-1 is the key: it grows to fill ALL space between header
-            and dots, so no matter the phone height, there's zero dead space.
-            scrollbarWidth:none hides the ugly scrollbar on Android Chrome. */}
+  
         <div
           ref={horizontalScrollRef}
           className="flex flex-1 overflow-x-auto snap-x snap-mandatory px-4 gap-4"
@@ -207,18 +197,14 @@ export default function FeaturedWork() {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              // `calc(100vw - 2rem)` = full width minus the 1rem padding on
-              // each side, so the card sits flush with both edges.
+            
               className="flex-shrink-0 snap-center"
               style={{ width: "calc(100vw - 2rem)" }}
               ref={(el) => {
                 imageRefs.current[index] = el;
               }}
             >
-              {/* ✅ FIX 4: calc(100svh - 140px) instead of h-96.
-                  140px = ~64px (header) + ~48px (dots area) + ~28px (breathing room).
-                  This means the card always fills the screen correctly on any
-                  phone — iPhone SE (667px), iPhone 14 Pro Max (926px), all of them. */}
+       
               <div
                 className="relative w-full rounded-2xl overflow-hidden"
                 style={{ height: "calc(100svh - 140px)" }}
@@ -272,7 +258,7 @@ export default function FeaturedWork() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-gray-100 dark:bg-neutral-900 px-4 py-4"
+      className="relative  bg-gray-100 dark:bg-neutral-900 px-4 py-4"
     >
       <div className="sticky top-4 h-[calc(100vh-2rem)] flex rounded-3xl overflow-hidden bg-black">
         {/* Left Panel */}
@@ -293,7 +279,7 @@ export default function FeaturedWork() {
                 }`}
               >
                 <h3
-                  className={`text-4xl md:text-4xl lg:text-5xl font-medium leading-tight transition-all duration-500 ${
+                  className={`text-4xl md:text-4xl lg:text-4xl  2xl:text-6xl font-medium leading-tight transition-all duration-500 ${
                     index === activeProject ? "text-white" : "text-gray-600"
                   }`}
                 >
