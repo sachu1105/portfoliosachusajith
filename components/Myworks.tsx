@@ -51,14 +51,10 @@ const projects = [
 export default function FeaturedWork() {
   const [activeProject, setActiveProject] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // ✅ FIX 1: Lazy initializer reads window immediately at mount.
-  // Since this is a "use client" component, window exists when this runs.
-  // This prevents the desktop layout from ever flashing on mobile,
-  // which was the root cause of the 600vh empty space bug.
-  const [isMobile, setIsMobile] = useState<boolean>(
-    () => typeof window !== "undefined" && window.innerWidth < 640
-  );
+  // Keep first render consistent between server and client to avoid hydration mismatch.
+  const [isMobile, setIsMobile] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const rightPanelRef = useRef<HTMLDivElement>(null);
@@ -67,16 +63,15 @@ export default function FeaturedWork() {
 
   // Keep isMobile in sync on resize
   useEffect(() => {
+    setHasMounted(true);
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const getTotalScrollHeight = useCallback(() => projects.length * 100, []);
 
-  // ✅ FIX 2: When isMobile flips true, explicitly clear the minHeight
-  // that the desktop pass may have written. Without this, the 600vh
-  // remains on the element even after the mobile branch renders.
   useEffect(() => {
     if (isMobile) {
       if (containerRef.current) {
@@ -165,16 +160,16 @@ export default function FeaturedWork() {
   const stackTranslateY = -scrollProgress * (projects.length - 1) * 90;
 
   // ─── MOBILE VIEW ────────────────────────────────────────────────────────────
-  if (isMobile) {
+  if (hasMounted && isMobile) {
     return (
   
       <section
-        className="relative w-full bg-neutral-900 flex flex-col"
+        className="relative w-full flex flex-col"
         style={{ minHeight: "100svh" }}
       >
      
         <div className="flex items-center justify-between px-5 pt-8 pb-3 flex-shrink-0">
-          <h2 className="text-white text-xl font-light tracking-widest opacity-50 uppercase">
+          <h2 className="text-xl font-light tracking-widest opacity-50 uppercase">
             My Works
           </h2>
           {/* Mono counter gives a subtle editorial feel: "01 / 06" */}
@@ -258,13 +253,13 @@ export default function FeaturedWork() {
   return (
     <section
       ref={containerRef}
-      className="relative  bg-gray-100 dark:bg-neutral-900 px-4 py-4"
+      className="relative  bg-[#efeeec] dark:bg-neutral-900 px-4 py-4"
     >
-      <div className="sticky top-4 h-[calc(100vh-2rem)] flex rounded-3xl overflow-hidden bg-black">
+      <div className="sticky top-4 h-[calc(100vh-2rem)] flex rounded-3xl overflow-hidden ">
         {/* Left Panel */}
-        <div className="w-1/2 bg-black flex flex-col justify-center pl-12 pr-8">
+        <div className="w-1/2  flex flex-col justify-center pl-12 pr-8">
           <div className="absolute top-12 left-12">
-            <h2 className="text-white text-lg font-light tracking-wider opacity-60">
+            <h2 className="text-black dark:text-white text-lg font-light tracking-wider opacity-60">
               My Works
             </h2>
           </div>

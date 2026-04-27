@@ -1,15 +1,10 @@
 // components/HeroSection.tsx
 "use client";
 
-import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { AnimatePresence } from "framer-motion";
-import MobileNavMenu from "./MobileNavMenu";
+import React from "react";
 import { RetroGrid } from "@/components/ui/retro-grid";
 
 export default function HeroSection() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
     <section className="relative min-h-screen w-full overflow-hidden pt-12 pb-8 sm:pt-16 md:pt-28 bg-[#efeeec] dark:bg-black">
       {/* Retro grid background */}
@@ -23,15 +18,6 @@ export default function HeroSection() {
 
       <div className="relative w-full min-h-[calc(100vh-8rem)] rounded-4xl overflow-hidden flex flex-col items-center justify-center px-4">
         
-        {/* Mobile Hamburger Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="absolute md:hidden top-4 right-4 z-50 text-slate-800 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 bg-white/70 backdrop-blur-md border border-slate-200 hover:bg-white transition-all flex items-center justify-center w-12 h-12"
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
-
         {/* Main Content Container */}
         <div className="relative z-10 flex flex-col items-center justify-center max-w-5xl mx-auto px-6 text-center">
           
@@ -83,9 +69,6 @@ export default function HeroSection() {
         </div>
 
       </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>{isMobileMenuOpen && <MobileNavMenu />}</AnimatePresence>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import AboutMe from "@/components/About";
+import ExperienceSwipe from "@/components/Experience";
 import HeroSection from "@/components/HeroSection";
 import Myworks from "@/components/Myworks";
 import MyServices from "@/components/Services";
@@ -26,10 +27,10 @@ export default function Home() {
       <section id="services" className="px-0 py-4">
         <MyServices />
       </section>
-      {/* 
+      
       <section id="scrolling" className="px-0 py-4">
-        <ScrollingText />
-      </section> */}
+        <ExperienceSwipe />
+      </section>
     </div>
   );
 }

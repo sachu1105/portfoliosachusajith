@@ -1,59 +1,104 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, LayoutGrid } from "lucide-react";
+import { motion } from "framer-motion";
+
+const technicalSkills = [
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "Next.js",
+  "React.js",
+  "FastAPI",
+  "Node.js",
+  "PostgreSQL",
+  "MongoDB",
+  "Redis",
+  "Docker",
+  "Nginx",
+];
 
 export default function AboutMe() {
-  const mobileCta =
-    "max-lg:inline-flex max-lg:min-h-11 max-lg:flex-1 max-lg:items-center max-lg:justify-center max-lg:gap-2 max-lg:rounded-full max-lg:px-4 max-lg:py-2.5 max-lg:text-sm max-lg:font-medium max-lg:transition sm:max-lg:min-h-12 sm:max-lg:px-5 sm:max-lg:py-3 sm:max-lg:text-base";
-
   return (
-    <section className="w-full px-4 py-10 md:py-14 lg:py-16">
-      <div className="mx-auto max-w-full">
-        <div className="rounded-3xl p-5 sm:p-8 md:p-12 lg:p-4">
-          {/* Below lg: tight vertical rhythm (no min-height / flex-1 stretch). lg+: two-column grid. */}
-          <div className="flex max-lg:flex-col max-lg:gap-4 lg:grid lg:min-h-0 lg:grid-cols-2 lg:items-start lg:gap-x-48 lg:gap-y-8">
-            <p className="order-2 max-w-3xl text-base font-medium leading-relaxed sm:text-lg md:text-xl lg:order-none lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:max-w-none lg:text-2xl">
-              A passionate full-stack developer crafting digital experiences through innovative web solutions, modern
-              design patterns & seamless user interactions for both businesses and individuals
+    <section className=" mx-auto mt-1 w-[90vw] max-w-6xl bg-white dark:bg-[#0a0a0a] dark:text-white rounded-[20px] lg:rounded-[30px] border border-gray-100 dark:border-white/10 p-5 lg:p-8 z-40">
+   
+      <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12">
+        
+        {/* Left Column: The Narrative */}
+        <div className="flex flex-col justify-center">
+          <p className="text-xs lg:text-sm font-medium uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3">
+            A little about me
+          </p>
+          <h3 className="text-2xl lg:text-3xl font-semibold text-black dark:text-white mb-6 leading-tight tracking-tight">
+          Building full-stack systems from idea to scalable production.
+          </h3>
+          <div className="space-y-4 text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p>
+              I’ve spent the last 3+ years engineering and shipping products across AI, e-commerce, and enterprise tooling. I specialize in building solid product foundations—from custom responsive UIs to robust backend architectures that scale.
             </p>
-
-            <h2 className="order-1 text-4xl font-bold leading-[1.12] max-lg:text-3xl max-lg:sm:text-4xl max-lg:md:text-5xl md:text-5xl lg:order-none lg:col-start-2 lg:row-start-1 lg:leading-tight lg:text-6xl">
-              Building Digital{" "}
-              <span className="inline-flex items-center">
-                Experiences
-                <span className="ml-2 h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-gray-300 md:h-16 md:w-16">
-                  <Image
-                    src="/images/design.png"
-                    alt="Design and development"
-                    width={64}
-                    height={64}
-                    className="h-full w-full object-cover"
-                  />
-                </span>
-              </span>
-            </h2>
-
-            <div className="order-3 flex w-full max-w-md flex-row justify-center gap-3 self-center sm:max-w-none lg:order-none lg:col-start-2 lg:row-start-2 lg:mt-0 lg:max-w-none lg:flex lg:flex-row lg:justify-start lg:gap-8">
-              <Link
-                href="/about"
-                className={`${mobileCta} group max-lg:bg-white max-lg:text-gray-800 max-lg:hover:bg-neutral-100 lg:flex lg:items-center lg:rounded-full lg:bg-white lg:px-6 lg:py-4 lg:text-lg lg:font-medium lg:text-gray-800 lg:transition-colors lg:hover:text-gray-600`}
-              >
-                My Story
-                <ArrowRight className="h-4 w-4 shrink-0 sm:h-[1.125rem] sm:w-[1.125rem] lg:hidden" aria-hidden />
-                <ArrowUpRight className="ml-2 hidden shrink-0 lg:inline" aria-hidden />
-              </Link>
-
-              <Link
-                href="/myservices"
-                className={`${mobileCta} group max-lg:border max-lg:border-neutral-300 max-lg:bg-neutral-50/80 max-lg:text-gray-800 max-lg:hover:bg-neutral-100 lg:flex lg:items-center lg:border-transparent lg:bg-transparent lg:px-0 lg:py-4 lg:text-lg lg:font-medium lg:transition-colors lg:hover:text-gray-600`}
-              >
-                My Services
-                <LayoutGrid className="h-4 w-4 shrink-0 sm:h-[1.125rem] sm:w-[1.125rem] lg:hidden" aria-hidden />
-                <ArrowUpRight className="ml-2 hidden shrink-0 lg:inline" aria-hidden />
-              </Link>
-            </div>
+            <p>
+              While my recent work involves architecting secure, AI-integrated workflows and document intelligence pipelines for air-gapped environments, my core DNA is in full production ownership. I handle end-to-end delivery: writing high-performance React code on the frontend, and wiring up FastAPI, task queues, and Docker infrastructure on the backend.
+            </p>
           </div>
         </div>
+
+        {/* Right Column: Stats & Stack */}
+        <div className=" dark:bg-white/5  border-l dark:border-white/10 p-6 lg:p-8 flex flex-col justify-between">
+          <div className="space-y-8">
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-3xl lg:text-5xl font-bold text-black dark:text-white tracking-tighter mb-1">
+                  3+ <span className="text-lg lg:text-2xl font-medium text-gray-400">Years</span>
+                </h4>
+                <p className="text-xs lg:text-sm text-gray-500 font-medium">Full Stack Development</p>
+              </div>
+              <div>
+                <h4 className="text-3xl lg:text-5xl font-bold text-black dark:text-white tracking-tighter mb-1">
+                  4 <span className="text-lg lg:text-2xl font-medium text-gray-400">Cos.</span>
+                </h4>
+                <p className="text-xs lg:text-sm text-gray-500 font-medium">From Startups to Media</p>
+              </div>
+            </div>
+
+            {/* Skills */}
+            <div>
+              <h4 className="text-sm font-semibold text-black dark:text-white mb-3 uppercase tracking-wider">
+                Core Stack
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {technicalSkills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs lg:text-sm px-3 py-1.5 rounded-full bg-white dark:bg-black border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 font-medium "
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Quote/Philosophy */}
+          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/10">
+            <p className="text-sm text-gray-500 dark:text-gray-400 font-medium italic">
+              "I build with a focus on precision, removing external dependencies, and creating architectures that are closer to production from day one."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="flex justify-center mt-8 lg:mt-10">
+        <Link
+          href="/about"
+          className="group flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-full text-sm font-medium hover:scale-105 transition-all duration-200 shadow-md"
+        >
+          View more
+          <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
       </div>
     </section>
   );

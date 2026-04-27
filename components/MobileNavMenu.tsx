@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "My Story", href: "/about" },
   { name: "Services", href: "/myservices" },
-  { name: "Projects", href: "/projects" },
   { name: "Resume", href: "/resume" },
 ];
 
@@ -33,17 +32,30 @@ const itemVariants = {
   },
 };
 
-export default function MobileNavMenu() {
+type MobileNavMenuProps = {
+  onNavigate?: () => void;
+  onClose?: () => void;
+};
+
+export default function MobileNavMenu({ onNavigate, onClose }: MobileNavMenuProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 bg-black/95 z-40 lg:hidden flex flex-col items-center justify-center"
+      className="fixed inset-0 bg-white/95 dark:bg-black/95 z-[70] lg:hidden flex flex-col items-center justify-center"
     >
-      {/* Theme Toggler in top right */}
-      <div className="absolute top-6 right-6">
+      {/* Top controls */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
+        aria-label="Close menu"
+      >
+        <X className="h-5 w-5" />
+      </button>
+
+      <div className="absolute top-4 left-4">
         <AnimatedThemeToggler />
       </div>
 
@@ -55,7 +67,11 @@ export default function MobileNavMenu() {
       >
         {navLinks.map((link) => (
           <motion.li key={link.href} variants={itemVariants}>
-            <Link href={link.href} className="text-white text-3xl font-medium">
+            <Link
+              href={link.href}
+              onClick={onNavigate}
+              className="text-neutral-900 dark:text-white text-3xl font-medium"
+            >
               {link.name}
             </Link>
           </motion.li>
@@ -65,6 +81,7 @@ export default function MobileNavMenu() {
         <motion.li variants={itemVariants} className="mt-8">
           <Link
             href="/contact"
+            onClick={onNavigate}
             className="bg-orange-500 text-white text-lg font-semibold px-6 py-4 rounded-full 
                        hover:bg-orange-600 transition-all flex items-center"
           >

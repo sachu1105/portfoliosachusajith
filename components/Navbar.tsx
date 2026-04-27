@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import NavbarDropdown from "./NavbarDropdown";
 import AboutDropdown from "./AboutDropdown";
 import MobileNavMenu from "./MobileNavMenu";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 
 export default function Navbar() {
@@ -53,10 +53,10 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close mobile menu on route change (unchanged)
+  // Close mobile menu only when route changes
   useEffect(() => {
-    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
-  }, [pathname, isMobileMenuOpen]);
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   // Close services dropdown when navigating (e.g. "View All Services")
   useEffect(() => {
@@ -101,13 +101,13 @@ export default function Navbar() {
           <Link href="/" className={pathname === "/" ? "text-orange-500" : ""}>
             Home
           </Link>
-          {/* <Link
+          <Link
             href="/about"
             className={pathname === "/about" ? "text-orange-500" : ""}
           >
-            About
-          </Link> */}
-          <div className="relative">
+            About Me
+          </Link>
+          {/* <div className="relative">
             <button
               data-dropdown-trigger="true"
               onClick={() =>
@@ -117,7 +117,7 @@ export default function Navbar() {
             >
               About Me
             </button>
-          </div>
+          </div> */}
           <div className="relative">
             <button
               data-dropdown-trigger="true"
@@ -169,6 +169,53 @@ export default function Navbar() {
         
         </div>
       </nav>
+
+      {/* Mobile Top Navigation */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-300 ${
+          visible ? "translate-y-0" : "-translate-y-[130%]"
+        }`}
+      >
+        <div className="mx-4 mt-4">
+          <div className="flex items-center justify-between">
+            {pathname !== "/" ? (
+              <Link
+                href="/"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 backdrop-blur-sm"
+                aria-label="Go to home"
+              >
+                <ArrowLeft size={20} />
+              </Link>
+            ) : (
+              <div className="w-10 h-10" />
+            )}
+
+            <Link
+              href="/"
+              className="text-sm font-semibold px-3 py-1.5 rounded-full dark:bg-slate-900/90   dark:border-slate-700 text-slate-900 dark:text-white backdrop-blur-sm"
+            >
+              CarbonForm
+            </Link>
+
+            <button
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 backdrop-blur-sm"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <MobileNavMenu
+            onNavigate={() => setIsMobileMenuOpen(false)}
+            onClose={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

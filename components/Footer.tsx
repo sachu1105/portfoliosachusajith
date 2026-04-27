@@ -113,7 +113,7 @@ export default function Footer() {
                 transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease-out",
               }}
             >
-              <h1 className="w-full font-bold tracking-tight text-[clamp(3rem,15vw,13rem)] leading-[1.1] md:leading-none px-2 md:px-12">
+              <h1 className="w-full font-bold tracking-tight text-[clamp(3rem,13vw,12rem)] xl:text-[clamp(4rem,11vw,15rem)] leading-[1.1] md:leading-none px-2 md:px-1">
                 {text}
               </h1>
             </div>

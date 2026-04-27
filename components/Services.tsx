@@ -19,13 +19,13 @@ export default function MyServices() {
       <div className="mx-auto w-full max-w-7xl">
         
         {/* Header Area */}
-        <div className="mb-10 flex flex-col gap-5 md:mb-16 md:flex-row md:items-end md:justify-between md:gap-8">
+        <div className="mb-10 flex flex-col items-center gap-5 text-center md:mb-16 md:flex-row md:items-end md:justify-between md:gap-8 md:text-left">
           <h2 className="text-4xl font-extrabold tracking-tight leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl">
             My Services
           </h2>
           <Link
             href="/myservices"
-            className="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-full bg-neutral-100 px-5 py-3 text-sm font-medium transition hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 sm:px-6 sm:py-3.5 sm:text-base md:self-end"
+            className="hidden w-fit shrink-0 items-center justify-center gap-2 rounded-full bg-neutral-100 px-5 py-3 text-sm font-medium transition hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 sm:px-6 sm:py-3.5 sm:text-base md:inline-flex md:self-end"
           >
             <span className="whitespace-nowrap">View All Services</span>
             <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
@@ -47,6 +47,16 @@ export default function MyServices() {
               </span>
             </a>
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center md:hidden">
+          <Link
+            href="/myservices"
+            className="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-full bg-neutral-100 px-5 py-3 text-sm font-medium transition hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 sm:px-6 sm:py-3.5 sm:text-base"
+          >
+            <span className="whitespace-nowrap">View All Services</span>
+            <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
+          </Link>
         </div>
       </div>
     </section>
