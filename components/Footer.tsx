@@ -53,79 +53,82 @@ export default function Footer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const text = "Carbon\u00A0Form";
+  // FIX 1: Removed the non-breaking space (\u00A0) to allow mobile wrapping
+  const text = "Carbon Form";
   
-  // SPEED FIX: Multiply by 0.4 instead of 1. 
-  // It now only travels 40% of the screen width instead of 100%, making it move much slower.
-  const translateX = windowWidth ? (1 - scrollProgress) * (windowWidth * 0.4) : 0;
+  // FIX 2: Disable horizontal shift on mobile (<768px) to prevent layout thrashing and clipping
+  const isMobile = windowWidth < 768;
+  const translateX = !isMobile && windowWidth ? (1 - scrollProgress) * (windowWidth * 0.4) : 0;
   
   const opacity = Math.min(scrollProgress * 2, 1);
 
   return (
     <div className="dark:bg-neutral-900 px-4 md:px-8 lg:px-6 py-6">
       <footer className="bg-white dark:bg-black rounded-3xl overflow-hidden shadow-lg">
-        <div className="max-w-full mx-auto px-6 md:px-12 py-12">
+        <div className="max-w-full mx-auto px-6 md:px-12 py-10 md:py-12">
           
           {/* Top Row */}
-          <div className="flex flex-col lg:flex-row justify-between gap-12">
+          <div className="flex flex-col lg:flex-row justify-between gap-10 md:gap-12">
             
-            <div className="flex-1 max-w-md">
-              <h3 className="text-3xl font-bold mb-4">Connect with me</h3>
+            <div className="flex-1 max-w-md mx-auto lg:mx-0 w-full">
+              {/* Centered title on mobile */}
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center lg:text-left">Connect with me</h3>
+              
               <div className="flex items-center dark:bg-neutral-900 rounded-full overflow-hidden border border-neutral-700">
                 <input
                   type="email"
                   placeholder="Your Email Address"
-                  className="flex-1 px-4 py-3 bg-transparent text-white placeholder-neutral-500 outline-none"
+                  className="flex-1 px-4 py-3 bg-transparent text-black dark:text-white placeholder-neutral-500 outline-none text-sm md:text-base"
                 />
-                <button className="bg-[#A8F5E1] p-3 rounded-full shrink-0 m-1 hover:scale-105 transition">
+                <button className="bg-[#A8F5E1] p-2 md:p-3 rounded-full shrink-0 m-1 hover:scale-105 transition">
                   <ArrowUpRight className="text-black" size={20} />
                 </button>
               </div>
 
-              <div className="mt-4">
+              {/* Centered social dock on mobile */}
+              <div className="mt-6 flex justify-center lg:justify-start">
                 <DockDemo />
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-start gap-8 text-lg font-medium">
+            {/* FIX 3: Switched to flex-row wrap on mobile to save vertical height */}
+            <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 text-base md:text-lg font-medium mt-4 lg:mt-0">
               <Link href="/" className="hover:underline">Home</Link>
               <Link href="/about" className="hover:underline">About</Link>
               <Link href="/myservices" className="hover:underline">Services</Link>
-              {/* <Link href="/projects" className="hover:underline">Works</Link> */}
             </div>
           </div>
 
           {/* Big Brand Text - Animated */}
           <div 
             ref={containerRef} 
-            // CENTERING FIX: Removed lg:justify-start to force centering on all screens
             className="w-full mt-12 overflow-hidden flex items-center justify-center" 
           >
             <div
-              className="relative whitespace-nowrap will-change-transform"
+              // FIX 4: Changed `whitespace-nowrap` to `md:whitespace-nowrap` to allow safe breaking on tiny screens
+              className="relative text-center md:whitespace-nowrap will-change-transform"
               style={{
                 transform: `translateX(${translateX}px)`,
                 opacity: opacity,
-                // SMOOTHNESS FIX: Added a custom cubic-bezier transition. 
-                // This acts as a dampener, catching the raw scroll values and smoothing them out.
                 transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease-out",
               }}
             >
-              {/* CENTERING FIX: Removed lg:text-left to ensure text aligns center */}
-              <h1 className="w-full font-bold tracking-tight text-[clamp(2rem,13vw,13rem)] leading-none text-center px-6 md:px-12">
+              <h1 className="w-full font-bold tracking-tight text-[clamp(3rem,13vw,12rem)] xl:text-[clamp(4rem,11vw,15rem)] leading-[1.1] md:leading-none px-2 md:px-1">
                 {text}
               </h1>
             </div>
           </div>
 
           {/* Bottom Row */}
-          <div className="mt-8 border-t border-neutral-700 pt-6 flex flex-col md:flex-row justify-between gap-4 text-sm text-neutral-400">
-            <p>© {new Date().getFullYear()} Carbon Form. All rights reserved.</p>
-            <div className="flex gap-4">
-              <Link href="/privacy-policy">Privacy Policy</Link>
-              <Link href="/terms">Terms & Conditions</Link>
+          {/* FIX 5: Centered stack on mobile, row on desktop */}
+          <div className="mt-8 border-t border-neutral-700 pt-6 flex flex-col md:flex-row items-center md:justify-between gap-4 text-xs md:text-sm text-neutral-500 md:text-neutral-400">
+            <p className="text-center md:text-left">© {new Date().getFullYear()} Carbon Form. All rights reserved.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition">Terms & Conditions</Link>
             </div>
           </div>
+          
         </div>
       </footer>
     </div>

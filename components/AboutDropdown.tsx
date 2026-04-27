@@ -1,4 +1,6 @@
 "use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const technicalSkills = [
@@ -16,10 +18,15 @@ const technicalSkills = [
   "Nginx",
 ];
 
-export default function AboutMe() {
+export default function AboutDropdown() {
   return (
-    <section className=" mx-auto mt-1 w-[90vw] max-w-6xl bg-white dark:bg-[#0a0a0a] dark:text-white rounded-[20px] lg:rounded-[30px] border border-gray-100 dark:border-white/10 p-5 lg:p-8 z-40">
-   
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[90vw] max-w-6xl bg-white dark:bg-[#0a0a0a] dark:text-white rounded-[20px] lg:rounded-[30px] shadow-2xl border border-gray-100 dark:border-white/10 p-5 lg:p-8 z-40"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12">
         
         {/* Left Column: The Narrative */}
@@ -27,8 +34,8 @@ export default function AboutMe() {
           <p className="text-xs lg:text-sm font-medium uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3">
             A little about me
           </p>
-          <h3 className="text-2xl lg:text-3xl font-semibold text-black dark:text-white mb-6 leading-tight tracking-tight">
-          Building full-stack systems from idea to scalable production.
+          <h3 className="text-2xl lg:text-4xl font-semibold text-black dark:text-white mb-6 leading-tight tracking-tight">
+            From zero-to-one builds to scaling full-stack platforms.
           </h3>
           <div className="space-y-4 text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
             <p>
@@ -97,6 +104,6 @@ export default function AboutMe() {
           <span className="group-hover:translate-x-1 transition-transform">→</span>
         </Link>
       </div>
-    </section>
+    </motion.div>
   );
 }

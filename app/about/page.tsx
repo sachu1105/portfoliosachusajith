@@ -5,6 +5,7 @@ export default function AboutPage() {
   return (
     <div className="font-sans py-24">
       <SkillsVisionHero />
+      {/* <ExperienceSwipe /> */}
       <SkillsStack />
     </div>
   );
