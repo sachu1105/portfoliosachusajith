@@ -55,7 +55,7 @@ export default function Footer() {
   }, []);
 
   // FIX 1: Removed the non-breaking space (\u00A0) to allow mobile wrapping
-  const text = "Carbon Form";
+  const text = "Sachu Sajith";
   
   // FIX 2: Disable horizontal shift on mobile (<768px) to prevent layout thrashing and clipping
   const isMobile = windowWidth < 768;
@@ -118,7 +118,7 @@ export default function Footer() {
                 transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease-out",
               }}
             >
-              <h1 className="w-full font-bold tracking-tight text-[clamp(3rem,13vw,12rem)] xl:text-[clamp(4rem,11vw,15rem)] leading-[1.1] md:leading-none px-2 md:px-1">
+              <h1 className="w-full font-bold tracking-tight text-[clamp(3rem,13vw,12rem)] xl:text-[clamp(4rem,11vw,15rem)] leading-[1.1] md:leading-none px-2 md:px-1 pb-[0.12em]">
                 {text}
               </h1>
             </div>
@@ -127,7 +127,7 @@ export default function Footer() {
           {/* Bottom Row */}
           {/* FIX 5: Centered stack on mobile, row on desktop */}
           <div className="mt-8 border-t border-neutral-700 pt-6 flex flex-col md:flex-row items-center md:justify-between gap-4 text-xs md:text-sm text-neutral-500 md:text-neutral-400">
-            <p className="text-center md:text-left">© {new Date().getFullYear()} Carbon Form. All rights reserved.</p>
+            <p className="text-center md:text-left">© {new Date().getFullYear()} Sachu Sajith. All rights reserved.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white transition">Terms & Conditions</Link>

@@ -83,7 +83,7 @@ export default function Navbar() {
             ${visible ? "translate-y-0" : "-translate-y-[150%]"}`}
       >
         <Link href="/" className="text-lg font-bold text-white px-4">
-          CarbonForm
+          Sachu Sajith
         </Link>
 
         {/* --- TEXT ROLL NAVIGATION --- */}
@@ -163,8 +163,8 @@ export default function Navbar() {
       {/* Mobile Nav */}
       <nav className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-[130%]"}`}>
         <div className="mx-4 mt-4 flex items-center justify-between">
-          <Link href="/" className="text-sm font-semibold px-4 py-2 rounded-full dark:bg-slate-900/90 text-white backdrop-blur-sm">
-            CarbonForm
+          <Link href="/" className="text-sm font-semibold px-4 py-2 rounded-full bg-black/60 dark:bg-slate-900/90 text-white backdrop-blur-sm">
+            Sachu Sajith
           </Link>
           <button onClick={() => setIsMobileMenuOpen((prev) => !prev)} className="w-10 h-10 rounded-full bg-black/60 border border-white/20 text-white flex items-center justify-center">
             {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}

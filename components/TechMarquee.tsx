@@ -8,6 +8,7 @@ const techStack = [
   { src: "/images/reactr.png", alt: "React" },
   { src: "/images/tailwinder.png", alt: "Tailwind CSS" },
   { src: "/images/mongodb.png", alt: "MongoDB" },
+  { src: "/images/postgree.png", alt: "PostgreSQL" },
   { src: "/images/docker.png", alt: "Docker" },
   { src: "/images/figmabw.png", alt: "Figma" },
 ];
@@ -27,7 +28,7 @@ export default function TechMarquee() {
       <div className="pointer-events-none absolute right-0 top-0 h-full w-12 md:w-32 lg:w-64 z-20 bg-gradient-to-l from-[#efeeec] via-[#efeeec]/80 to-transparent dark:from-black dark:via-black/80 backdrop-blur-sm" />
 
       {/* FIX 4: Shrunk gaps (gap-10) and minimum widths on mobile to fit more logos smoothly */}
-      <Marquee pauseOnHover className="[--duration:40s] gap-10 md:gap-24">
+      <Marquee pauseOnHover className="[--duration:40s] gap-10 md:gap-24 group/track">
         {[...techStack, ...techStack].map((tech, index) => (
           <div
             key={index}
@@ -39,7 +40,8 @@ export default function TechMarquee() {
               width={120}
               height={120}
               // FIX 5: Scaled down the actual image size for mobile screens
-              className="object-contain w-[70px] md:w-[120px] grayscale invert-0 dark:invert transition-all duration-300"
+              // Hovering one logo dims/blurs the rest of the track and pops this one to solid black (white in dark mode via dark:invert)
+              className="object-contain w-[70px] md:w-[120px] grayscale invert-0 dark:invert transition-all duration-300 group-hover/track:opacity-40 group-hover/track:blur-[2px] hover:opacity-100! hover:blur-none! hover:brightness-0!"
             />
           </div>
         ))}
