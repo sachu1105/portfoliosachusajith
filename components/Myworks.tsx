@@ -22,7 +22,7 @@ const projects = [
     id: 3,
     title: "Robotics Control Panel",
     year: "[2023]",
-    image: "/images/macBookAir-1.png",
+    image: "/images/MacBookAir-1.png",
     color: "from-orange-500/20 to-red-500/20",
   },
   {
