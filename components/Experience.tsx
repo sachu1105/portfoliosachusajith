@@ -13,7 +13,7 @@ import {
 const EXPERIENCE_DATA = [
   {
     id: 1,
-    company: "Malayamanorama",
+    company: "Malayalamanorama",
     role: "Full Stack Developer",
     date: "Dec 2025 - Present",
     description: "Internal full-stack applications",
